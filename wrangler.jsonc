@@ -1,0 +1,8 @@
+// Cloudflare Workers config: serve this repo as a static site (no server code).
+{
+  "name": "unhappy-turan-patients",
+  "compatibility_date": "2026-10-20",
+  "assets": {
+    "directory": "."
+  }
+}
