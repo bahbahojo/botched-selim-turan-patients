@@ -1,9 +1,7 @@
 # Files in the repo that should not be published as part of the website.
 .git/
-.github/
 .DS_Store
 .assetsignore
 wrangler.jsonc
-CNAME
 new-design/
 node_modules/
