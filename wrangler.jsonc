@@ -3,6 +3,8 @@
   "name": "unhappy-turan-patients",
   "compatibility_date": "2026-10-20",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    // Serve 404.html (with a real 404 status) for unknown URLs.
+    "not_found_handling": "404-page"
   }
 }

@@ -5,3 +5,6 @@
 wrangler.jsonc
 new-design/
 node_modules/
+# Notes and patches kept in this folder must never be published.
+*.md
+*.patch
