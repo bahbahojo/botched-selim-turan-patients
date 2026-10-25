@@ -1048,6 +1048,8 @@
         .highlight-label { padding: 0.75rem; font-weight: bold; font-size: 0.95rem; line-height: 1.35; color: var(--primary-color); }
         /* Leave room for the sticky menu when a highlight jumps to its section */
         [id] { scroll-margin-top: 90px; }
+        /* Sections focused after an in-page link aren't controls, so they don't need a focus ring */
+        [tabindex="-1"]:focus { outline: none; }
         @media (max-width: 768px) {
             .highlight-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
             .highlight-media { height: 120px; }
@@ -2788,6 +2790,16 @@
             root.style.scrollBehavior = '';
         }
 
+        // Move keyboard focus to a link's target, as a normal (non-scripted) link would, so the next Tab
+        // continues from there. Sections that can't normally take focus get tabindex="-1" (focusable by
+        // script only, not added to the Tab order). preventScroll keeps the position jumpTo chose.
+        function focusTarget(target) {
+            if (!target.matches('a[href], button, input, select, textarea, summary, [tabindex]')) {
+                target.setAttribute('tabindex', '-1');
+            }
+            target.focus({ preventScroll: true });
+        }
+
         // Any in-page link (highlights, menu, "See photos: Patient 1", the patient list) reveals its target,
         // jumps to it, then re-aligns once nearby images have finished sizing themselves — unless the
         // reader has already scrolled away in the meantime.
@@ -2800,6 +2812,7 @@
             revealTarget(target);
             history.pushState(null, '', link.getAttribute('href'));
             jumpTo(target);
+            focusTarget(target);
             const landedAt = window.scrollY;
             setTimeout(() => { if (Math.abs(window.scrollY - landedAt) < 5) jumpTo(target); }, 350);
         });
