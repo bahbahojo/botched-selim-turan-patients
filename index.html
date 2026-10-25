@@ -527,8 +527,12 @@
         }
 
         .disclaimer-content {
-            display: none;
             margin-top: 1rem;
+        }
+
+        /* Start collapsed only when JavaScript can open it; without JavaScript the text always shows */
+        .js .disclaimer-content {
+            display: none;
         }
 
         /* Back to top */
@@ -810,6 +814,11 @@
             .testimonial-nav,
             .video-container {
                 display: none;
+            }
+
+            /* Always print the legal disclaimer, even if it is collapsed on screen */
+            .disclaimer-content {
+                display: block !important;
             }
 
             body {
