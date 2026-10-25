@@ -397,6 +397,7 @@
         /* Contact info */
         .contact-info {
             background: #21618c; /* dark blue: 6.7:1 contrast with white text (WCAG AA) */
+            overflow-wrap: anywhere; /* lets the long email address wrap on narrow screens */
             color: white;
             padding: 1.5rem;
             border-radius: 8px;
@@ -530,6 +531,7 @@
 
         .disclaimer-content {
             margin-top: 1rem;
+            overflow-wrap: anywhere; /* lets the long email address wrap instead of running off narrow screens */
         }
 
         /* Start collapsed only when JavaScript can open it; without JavaScript the text always shows */
