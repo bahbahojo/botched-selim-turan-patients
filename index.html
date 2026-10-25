@@ -1038,6 +1038,29 @@
             transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
         }
+        /* Highlights: eight equal thumbnail cards near the top, each linking to its section */
+        .highlights { margin: 0 0 2rem; }
+        .highlights h2 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.75rem; }
+        .highlight-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .highlight-card { display: flex; flex-direction: column; background: #fff; border-radius: 10px; overflow: hidden;
+            box-shadow: var(--shadow); text-decoration: none; color: inherit; border-top: 4px solid var(--warning-color); }
+        .highlight-media { position: relative; display: block; height: 170px; background: #1a252f; overflow: hidden; }
+        .highlight-media img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+        .highlight-center .highlight-media img { object-position: center; }
+        .highlight-media blockquote { margin: 0; height: 100%; display: flex; align-items: center; padding: 1rem;
+            color: #fff; font-size: 1.05rem; font-style: italic; line-height: 1.4; }
+        .play-badge { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%;
+            background: rgba(197, 48, 48, 0.9); color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; }
+        .highlight-label { padding: 0.75rem; font-weight: bold; font-size: 0.95rem; line-height: 1.35; color: var(--primary-color); }
+        /* Leave room for the sticky menu when a highlight jumps to its section */
+        [id] { scroll-margin-top: 90px; }
+        @media (max-width: 768px) {
+            .highlight-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+            .highlight-media { height: 120px; }
+            .highlight-media blockquote { font-size: 0.85rem; padding: 0.6rem; }
+            .highlight-label { font-size: 0.82rem; padding: 0.55rem; }
+        }
     </style>
 </head>
 
@@ -1080,6 +1103,44 @@
                     please contact: <strong>unhappyselimturanpatients@gmail.com</strong></p>
             </div>
         </div>
+
+        <section class="highlights" aria-labelledby="highlights-title">
+            <h2 id="highlights-title">Highlights</h2>
+            <div class="highlight-grid">
+                <a class="highlight-card" href="#issue-4">
+                    <span class="highlight-media"><img width="663" height="1292" src="images/sh_1.webp" alt="Screenshot of his messages to a female patient"></span>
+                    <span class="highlight-label">Alleged sexual harassment of a female patient the night before surgery</span>
+                </a>
+                <a class="highlight-card highlight-center" href="#patient2">
+                    <span class="highlight-media"><img width="1042" height="677" src="images/image_page14_0.webp" alt="Patient 2: Reopened stitches"></span>
+                    <span class="highlight-label">Patient 2: two back-to-back surgeries on a neglected infection, with failed anesthesia</span>
+                </a>
+                <a class="highlight-card highlight-center" href="#patient3">
+                    <span class="highlight-media"><img width="2048" height="1539" src="images/image_page18_0.webp" alt="Patient 3: Birth nose next to his result"></span>
+                    <span class="highlight-label">Patient 3: birth nose vs. his result, alarplasty and pointiness without consent</span>
+                </a>
+                <a class="highlight-card" href="#issue-5">
+                    <span class="highlight-media"><img width="943" height="2048" src="images/image_page6_0.webp" alt="A patient asking him to take down their photos"></span>
+                    <span class="highlight-label">Patients' photos posted on his social media without consent</span>
+                </a>
+                <a class="highlight-card" href="#issue-6">
+                    <span class="highlight-media"><img width="480" height="360" src="https://img.youtube.com/vi/4J83pFx8Fqg/hqdefault.jpg" alt="Video thumbnail"><span class="play-badge" aria-hidden="true">▶</span></span>
+                    <span class="highlight-label">On video: threatening and insulting a patient over negative reviews</span>
+                </a>
+                <a class="highlight-card" href="#retaliation-2">
+                    <span class="highlight-media"><blockquote>"give small amount of money any person he can do so many bad things"</blockquote></span>
+                    <span class="highlight-label">One of four veiled violent threats he sent this site's author</span>
+                </a>
+                <a class="highlight-card" href="#retaliation-1">
+                    <span class="highlight-media"><img width="1253" height="1295" src="images/fake_tumblr_copy.webp" alt="The fake, backdated copy of this website"></span>
+                    <span class="highlight-label">A fake, backdated copy of this site for a fraudulent copyright takedown</span>
+                </a>
+                <a class="highlight-card" href="#instagram-video">
+                    <span class="highlight-media"><img width="676" height="1202" src="images/image_page8_0.webp" alt="Instagram video thumbnail"><span class="play-badge" aria-hidden="true">▶</span></span>
+                    <span class="highlight-label">Backlash after his unsolicited offer to “correct” an influencer's nose</span>
+                </a>
+            </div>
+        </section>
 
         <nav class="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-header">
@@ -1167,7 +1228,7 @@
             <section id="issues" class="section fade-in">
                 <h2>Class of Issues</h2>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-1">
                     <h3>1. Dents and Bumps</h3>
                     <p>Dents and bumps are among the most frequently reported aesthetic complications from Dr. Turan.
                         Patients often mention visible irregularities on the bridge or sidewalls of the nose, including
@@ -1183,7 +1244,7 @@
                     <p class="see-photos"><strong>See photos:</strong> <a href="#patient2">Patient 2</a> · <a href="#patient6">Patient 6</a> · <a href="#patient11">Patient 11</a> · <a href="#patient14">Patient 14</a> · <a href="#patient20">Patient 20</a></p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-2">
                     <h3>2. Nostril Asymmetries</h3>
                     <p>Nostril asymmetries are another common complaint among Dr. Selim Turan's patients and can stem
                         from
@@ -1201,7 +1262,7 @@
                     <p class="see-photos"><strong>See photos:</strong> <a href="#patient2">Patient 2</a> · <a href="#patient3">Patient 3</a> · <a href="#patient4">Patient 4</a> · <a href="#patient16">Patient 16</a> · <a href="#patient19">Patient 19</a></p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-3">
                     <h3>3. Unnecessary and Unconsented Alarplasties with Hypertrophic Scars</h3>
                     <p>This surgeon is known to routinely perform the more aggressive Weir (wedge and sill) alarplasty
                         excisions, often with little regard for patient consent. Despite being an irreversible
@@ -1231,7 +1292,7 @@
                     <p class="see-photos"><strong>See photos:</strong> <a href="#patient1">Patient 1</a> · <a href="#patient2">Patient 2</a> · <a href="#patient3">Patient 3</a> · <a href="#patient7">Patient 7</a> · <a href="#patient13">Patient 13</a></p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-4">
                     <h3>4. Alleged Sexual Harassment</h3>
                     <p>This surgeon has been known to hit on his female patients to the point of making them extremely
                         uncomfortable. In one
@@ -1294,7 +1355,7 @@
                     </div>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-5">
                     <h3>5. Unauthorized Publishing of Patients' Photos and Messages</h3>
                     <p>Turan has been reported to share patients' photos on his social media without obtaining proper
                         consent, and often refusing to remove them when asked. Patients report being gaslighted with
@@ -1318,7 +1379,7 @@
                     </div>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-6">
                     <h3>6. Unethical Behavior & Gaslighting</h3>
                     <p>Dr. Selim Turan has been reportedly using intimidation and gaslighting tactics to silence
                         patients
@@ -1357,7 +1418,7 @@
                         unsolicited to offer a nose correction, which resulted in public backlash in the
                         comments section of the post</p>
 
-                    <h4>Instagram Video: Public backlash after unsolicited surgery offer</h4>
+                    <h4 id="instagram-video">Instagram Video: Public backlash after unsolicited surgery offer</h4>
                     <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
                         <a href="https://www.instagram.com/reel/DDDfkMNu0vK/" target="_blank" rel="noopener noreferrer">
                             <img width="676" height="1202" src="images/image_page8_0.webp" alt="Watch on Instagram" loading="lazy" decoding="async"
@@ -1366,7 +1427,7 @@
                     </div>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-7">
                     <h3>7. Necrosis & Infections</h3>
                     <p>Several patients developed necrosis that led to open wounds, with no clear accountability or
                         follow-up from the surgeon. In many instances, infection concerns raised by patients were
@@ -1382,7 +1443,7 @@
                     <p class="see-photos"><strong>See photos:</strong> <a href="#patient2">Patient 2</a> · <a href="#patient5">Patient 5</a></p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-8">
                     <h3>8. Negligence</h3>
                     <p>Patients who expressed concerns before surgery often had their requests ignored. In one case, a
                         patient clearly communicated their aesthetic preferences multiple times, yet received the
@@ -1408,7 +1469,7 @@
                         be difficult to correct.</p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-9">
                     <h3>9. Multiple Surgeries a Day</h3>
                     <p>The surgeon is known to routinely perform 3 surgeries per day, with multiple patients reporting
                         that
@@ -1420,7 +1481,7 @@
                         If he does more than 2 on your day, that is a red flag.</p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-10">
                     <h3>10. Bias, Gaslighting, and Invalidation Within His WhatsApp Groups</h3>
                     <p>
                         Misleading narratives in these groups often come from patients emotionally invested in defending
@@ -1445,7 +1506,7 @@
                     </p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-11">
                     <h3>11. Recurring Deformities and Functional Damage</h3>
                     <p>Many patients have reported being left with over-rotated noses and unnaturally pointed nasal
                         tips,
@@ -1460,7 +1521,7 @@
                     <p class="see-photos"><strong>See photos:</strong> <a href="#patient3">Patient 3</a> · <a href="#patient5">Patient 5</a> · <a href="#patient6">Patient 6</a> · <a href="#patient8">Patient 8</a> · <a href="#patient13">Patient 13</a></p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-12">
                     <h3>12. Failed Revisions and Long-Term Health Effects</h3>
                     <p>Revision surgeries have frequently failed to correct the original mistakes, with some patients
                         left
@@ -1472,7 +1533,7 @@
                         were compounded by poor aftercare and reported threats if patients shared their experiences.</p>
                 </div>
 
-                <div class="issues-list">
+                <div class="issues-list" id="issue-13">
                     <h3>13. Male Patients</h3>
                     <p>Turan has a pattern of poor outcomes among male patients, and based on these cases, he may not be
                         an
@@ -1500,7 +1561,7 @@
                     and a report has been filed with the New York City Police Department. Click any item to read
                     more.</p>
 
-                <details class="issues-list collapsible">
+                <details class="issues-list collapsible" id="retaliation-1">
                     <summary>
                         <h3>1. Fraudulent Attempts to Take the Site Down</h3>
                         <p class="collapsible-summary">Two copyright complaints: one under a fake identity using a backdated copy of this site, and one in Dr. Turan's own name claiming copyright over photos patients took of themselves.</p>
@@ -1542,7 +1603,7 @@
                     <p>The author responded to Cloudflare on October 2, 2026, and the site remains up.</p>
                 </details>
 
-                <details class="issues-list collapsible">
+                <details class="issues-list collapsible" id="retaliation-2">
                     <summary>
                         <h3>2. Veiled Violent Threats from Dr. Turan</h3>
                         <p class="collapsible-summary">“give small amount of money any person he can do so many bad things…” and three similar messages.</p>
@@ -1573,7 +1634,7 @@
                     </div>
                 </details>
 
-                <details class="issues-list collapsible">
+                <details class="issues-list collapsible" id="retaliation-3">
                     <summary>
                         <h3>3. A Stranger Tries to Meet the Author in New York</h3>
                         <p class="collapsible-summary">Someone claiming to be his friend asked to meet the author in New York, then tried again after the author blocked him.</p>
@@ -2718,6 +2779,49 @@
             if (btn) btn.classList.toggle('visible', window.scrollY > 600);
             if (nav) nav.classList.toggle('scrolled', window.scrollY > navOriginalBottom);
         });
+
+        // Make a link target visible: open a collapsed retaliation item.
+        function revealTarget(target) {
+            if (target && target.tagName === 'DETAILS') target.open = true;
+        }
+
+        // Jump instantly (no smooth scroll). On phones the menu collapses once you scroll past it, which
+        // shifts the page mid-scroll and makes the jump overshoot, so collapse it first.
+        function jumpTo(target) {
+            if (nav) nav.classList.add('scrolled');
+            const root = document.documentElement;
+            root.style.scrollBehavior = 'auto';
+            target.scrollIntoView({ block: 'start' });
+            root.style.scrollBehavior = '';
+        }
+
+        // Any in-page link (highlights, menu, "See photos: Patient 1", the patient list) reveals its target,
+        // jumps to it, then re-aligns once nearby images have finished sizing themselves — unless the
+        // reader has already scrolled away in the meantime.
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('a[href^="#"]');
+            if (!link || link.getAttribute('href').length < 2) return;
+            const target = document.getElementById(link.getAttribute('href').slice(1));
+            if (!target) return;
+            event.preventDefault();
+            revealTarget(target);
+            history.pushState(null, '', link.getAttribute('href'));
+            jumpTo(target);
+            const landedAt = window.scrollY;
+            setTimeout(() => { if (Math.abs(window.scrollY - landedAt) < 5) jumpTo(target); }, 350);
+        });
+        window.addEventListener('hashchange', () => revealTarget(document.getElementById(location.hash.slice(1))));
+
+        // Opened from a link like /#patient3: reveal it, then re-align once the page has loaded, because
+        // the menu collapsing and late-loading content shift the layout after the browser's first jump.
+        if (location.hash) {
+            const target = document.getElementById(location.hash.slice(1));
+            revealTarget(target);
+            if (target) window.addEventListener('load', () => {
+                jumpTo(target);
+                setTimeout(() => jumpTo(target), 400);
+            });
+        }
     </script>
 
     <button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑ Top</button>
